@@ -13,11 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
+    if (!Schema::hasTable('appications')) {
         Schema::create('applications', function (Blueprint $table) {
+            if (!Schema::hasColumn('name', 'address')) {
             $table->bigIncrements('id');
             $table->string('name', 100);
             $table->timestamps();
+            }
         });
+
+        }
     }
 
     /**
