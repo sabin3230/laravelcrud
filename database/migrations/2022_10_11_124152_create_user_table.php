@@ -13,16 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-    if (!Schema::hasTable('appications')) {
-        Schema::create('applications', function (Blueprint $table) {
-            if (!Schema::hasColumn('name', 'address')) {
+        Schema::create('user', function (Blueprint $table) {      
             $table->bigIncrements('id');
-            $table->string('name', 100);
+            $table->string('first_name', 100);
+            $table->string('last_name', 100);
+            $table->boolean('status');
+            $table->integer('phone_number');
+            $table->longText('details');
             $table->timestamps();
-            }
         });
-
-        }
     }
 
     /**
@@ -32,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('applications');
+        Schema::dropIfExists('user');
     }
 };
