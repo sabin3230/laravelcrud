@@ -7,6 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-       protected $fillable = ['title',  'image', 'description', 'status'];
     use HasFactory;
+
+    protected $fillable =[
+        'postion',
+        'status',
+        'description',
+    ];
+
+    protected $table ='posts';
+    protected $softDelete = true;
 }
